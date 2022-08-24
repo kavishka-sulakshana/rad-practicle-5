@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    width: 800px;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.left-side{
+    flex: 1;
+    display: flex;
+    align-content: center;
+}
+
+.left-side img{
+    width: 100%;
+}
+
+.right-side{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-list{
+    font-size: large;
+    color: #444;
+    display: flex;
+    align-items: center;
+    margin: 5px 10px;
+}
+.icon-list > label{
+    margin-right: 10px;
+}
+.icon-list img{
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.right-side > label{
+    font-size: large;
+    margin: 5px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form > input{
+    font-size: medium;
+    height: 35px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.set2{
+    color: #444;
+    display: flex;
+    font-size: small;
+    align-items: center;
+    margin: 15px; 
+}
+
+.set2 > a{
+    margin-left: 15px;
+}
+.set2 > input{
+    margin-right: 5px;
+}
+
+button{
+    background-color: #1165f5;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius:5px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.set3 {
+    color: #444;
+    display: flex;
+    font-size: small;
+    justify-content: space-between;
+
+}
+.set3 > a{
+    color: #d5869e;
+    margin-left: 5px;
+}
+</style>
+<body>
+    <div class="main-container">
+        <div class="left-side">
+            <img src="image.webp" alt="image">
+        </div>
+        <div class="right-side">
+            <div class="icon-list">
+                <label> Sign in with</label>
+                <img src="fb.png" alt="facebook">
+                <img src="tw.png" alt="twitter">
+                <img src="ln.png" alt="linkedIn">
+            </div>
+            <label>or</label>
+
+            <form action="/login/password" method="post">
+                <input type="text" placeholder="Email address" />
+                <input type="text" placeholder="Password" />
+                <div class="set2">
+                    <input type="checkbox" id="" /> 
+                    <label>Remember me</label>
+                    <a href="">Forgot password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <div class="set3">
+                    <label>Don't have an account? </label>
+                    <a href=""> Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
