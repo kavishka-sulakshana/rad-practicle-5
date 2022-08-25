@@ -1,15 +1,16 @@
 var express = require('express');
-var passport = require('./passport');
+var passport = require('passport');
 var login = require('./routes/login');
 var path = require('path');
 var session = require('express-session');
 var SQLiteStore = require('connect-sqlite3')(session);
 var app = express();
 
-app.use(express.static(path.join(__dirname , 'public')));
+app.use(express.static(path.join(__dirname )));
 
 app.use('/login',login);
 
+app.use(passport.authenticate('session'));
 
 app.use(session({
   secret: 'keyboard cat',
@@ -18,7 +19,6 @@ app.use(session({
   store: new SQLiteStore({ db: 'sessions.db', dir: './' })
 }));
 
-app.use(passport.authenticate('session'));
 
 
 app.get('/',(req,res)=>{

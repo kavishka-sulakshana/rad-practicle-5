@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <style>
 *{
@@ -127,9 +126,9 @@ button{
             </div>
             <label>or</label>
 
-            <form action="/login/password" method="post">
-                <input type="text" placeholder="Email address" />
-                <input type="text" placeholder="Password" />
+            <form action="/login/auth" method="post">
+                <input type="text" placeholder="Username" name="username"/>
+                <input type="password" placeholder="Password" name="password"/>
                 <div class="set2">
                     <input type="checkbox" id="" /> 
                     <label>Remember me</label>
