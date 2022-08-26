@@ -119,25 +119,15 @@ button{
         </div>
         <div class="right-side">
             <div class="icon-list">
-                <label> Sign in with</label>
-                <img src="public/fb.png" alt="facebook">
-                <img src="public/tw.png" alt="twitter">
-                <img src="public/ln.png" alt="linkedIn">
+                <label> Register </label>
             </div>
-            <label>or</label>
-
-            <form action="/login/auth" method="post">
+            <form action="/register" method="post">
                 <input type="text" placeholder="Username" name="username"/>
                 <input type="password" placeholder="Password" name="password"/>
-                <div class="set2">
-                    <input type="checkbox" id="" /> 
-                    <label>Remember me</label>
-                    <a href="">Forgot password?</a>
-                </div>
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
                 <div class="set3">
-                    <label>Don't have an account? </label>
-                    <a href="/register"> Register</a>
+                    <label>Already have an account? </label>
+                    <a href="/login"> Login</a>
                 </div>
             </form>
         </div>

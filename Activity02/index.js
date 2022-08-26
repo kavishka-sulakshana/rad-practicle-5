@@ -15,5 +15,6 @@ app.post('/submit',upload.single('file'),(req, res)=>{
 });
 
 app.listen(PORT,(error)=>{
-    error ? console.log('Error :',error) : console.log('server is running on',PORT);
+    if(error) console.log('Error :',error);
+    else console.log('server is running on',PORT);
 });
