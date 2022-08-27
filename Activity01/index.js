@@ -1,11 +1,13 @@
 var session = require('express-session');
 var express = require('express');
+var bcrypt = require('bcrypt');
 var passport = require('./passport');
 var path = require('path');
 var sqlite3 = require('sqlite3');
 
 const database = new sqlite3.Database('database.db'); //sqlite database for save user data
 const app = express();
+const saltRounds = 10;
 const PORT = 8000;
 
 app.use(express.urlencoded({extended:false}));
@@ -56,10 +58,14 @@ app.post('/register', (req, res)=>{
     database.serialize(()=>{
         database.get("SELECT id FROM user ORDER BY id DESC",(err,data)=>{
             let stmt = database.prepare("INSERT INTO user(id,username, password) VALUES (?,?,?)");
-            stmt.run(++(data.id),req.body.username,req.body.password);
-            stmt.finalize((err)=>{
-                if(err) console.log("error registering ! -> ",err);
-                else res.redirect('/login');
+            bcrypt.genSalt(saltRounds, (err, salt) => {
+                bcrypt.hash(req.body.password, salt, (err, hash) => {
+                    stmt.run(++(data.id),req.body.username,hash);
+                    stmt.finalize((err)=>{
+                        if(err) console.log("error registering ! -> ",err);
+                        else res.redirect('/login');
+                    });
+                });
             });
         });
         /*
